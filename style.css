@@ -1,6 +1,150 @@
 body {
-  /* Set line height to 1.5 times the font size
-	   and use the OS’s UI font as the website font
-	 */
   font: 100%/1.5 system-ui;
+  display: block;
+  max-width: 100ch;
+  margin-inline: max(1em, (100% - 200ch) / 2);
+}
+
+nav{
+    display: flex;
+    margin-bottom: 1em;
+    border-bottom: 1px solid oklch(80% 3% 200);
+}
+
+nav a{
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5em;
+}
+
+nav a.current {
+  font-weight: bold;
+  text-decoration: underline;
+  border-bottom: 0.4em solid oklch(80% 3% 200);
+  padding-bottom: 0.1em;
+  background-color: lightblue;
+}
+
+input, 
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+
+label {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+}
+
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 0.5em;
+}
+
+.projects h2 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 400%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+
+/* ===== Resume page styling ===== */
+
+body {
+  max-width: 70ch;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.2rem;
+}
+
+h2 {
+  margin-top: 2rem;
+  border-bottom: 1px solid oklch(90% 0.02 250);
+  padding-bottom: 0.3rem;
+}
+
+nav {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.4em 0.6em;
+  border-radius: 0.4em;
+}
+
+nav a:hover {
+  background: oklch(92% 0.03 250);
+}
+
+nav a.current {
+  font-weight: 600;
+  border-bottom: 2px solid oklch(70% 0.2 250);
+}
+
+section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid oklch(90% 0.02 250);
+  border-radius: 0.8rem;
+  background: white;
+}
+
+section article {
+  margin-top: 1rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid oklch(80% 0.05 250);
+}
+
+time {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+a {
+  color: oklch(60% 0.15 250);
 }
