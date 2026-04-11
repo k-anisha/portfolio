@@ -81,10 +81,9 @@ h6 {
   text-wrap: balance;
 }
 
+/* ===== Resume page only ===== */
 
-/* ===== Resume page styling ===== */
-
-body {
+.resume {
   max-width: 70ch;
   margin: 2rem auto;
   padding: 1rem;
@@ -92,41 +91,18 @@ body {
   line-height: 1.6;
 }
 
-h1 {
+.resume h1 {
   font-size: 3rem;
   margin-bottom: 0.2rem;
 }
 
-h2 {
+.resume h2 {
   margin-top: 2rem;
   border-bottom: 1px solid oklch(90% 0.02 250);
   padding-bottom: 0.3rem;
 }
 
-nav {
-  display: flex;
-  gap: 1em;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-}
-
-nav a {
-  text-decoration: none;
-  color: inherit;
-  padding: 0.4em 0.6em;
-  border-radius: 0.4em;
-}
-
-nav a:hover {
-  background: oklch(92% 0.03 250);
-}
-
-nav a.current {
-  font-weight: 600;
-  border-bottom: 2px solid oklch(70% 0.2 250);
-}
-
-section {
+.resume section {
   margin-bottom: 2rem;
   padding: 1rem;
   border: 1px solid oklch(90% 0.02 250);
@@ -134,17 +110,40 @@ section {
   background: white;
 }
 
-section article {
+.resume section article {
   margin-top: 1rem;
   padding-left: 0.75rem;
   border-left: 3px solid oklch(80% 0.05 250);
 }
 
-time {
+.resume nav {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.resume nav a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.4em 0.6em;
+  border-radius: 0.4em;
+}
+
+.resume nav a:hover {
+  background: oklch(92% 0.03 250);
+}
+
+.resume nav a.current {
+  font-weight: 600;
+  border-bottom: 2px solid oklch(70% 0.2 250);
+}
+
+.resume time {
   font-size: 0.9rem;
   color: gray;
 }
 
-a {
+.resume a {
   color: oklch(60% 0.15 250);
 }
