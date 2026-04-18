@@ -1,3 +1,7 @@
+:root {
+  color-scheme: light dark;
+}
+
 body {
   font: 100%/1.5 system-ui;
   display: block;
@@ -6,9 +10,10 @@ body {
 }
 
 nav{
-    display: flex;
-    margin-bottom: 1em;
-    border-bottom: 1px solid oklch(80% 3% 200);
+  --border-color: oklch(50% 10% 200 / 40%);
+  display: flex;
+  margin-bottom: 1em;
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav a{
@@ -27,9 +32,14 @@ nav a.current {
   background-color: lightblue;
 }
 
-input, 
+nav a:hover {
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+input,
 textarea,
-button {
+button,
+select {
   font: inherit;
 }
 
@@ -83,7 +93,7 @@ h6 {
 
 /* ===== Resume page only ===== */
 
-.resume {
+.resume-content {
   max-width: 70ch;
   margin: 2rem auto;
   padding: 1rem;
@@ -98,52 +108,48 @@ h6 {
 
 .resume h2 {
   margin-top: 2rem;
-  border-bottom: 1px solid oklch(90% 0.02 250);
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.3rem;
 }
 
 .resume section {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border: 1px solid oklch(90% 0.02 250);
-  border-radius: 0.8rem;
-  background: white;
+  background: canvas;
+  border: 1px solid var(--border-color);
 }
 
 .resume section article {
   margin-top: 1rem;
   padding-left: 0.75rem;
-  border-left: 3px solid oklch(80% 0.05 250);
+  border-left: 1px solid var(--border-color);
 }
 
-.resume nav {
-  display: flex;
-  gap: 1em;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-}
-
-.resume nav a {
-  text-decoration: none;
-  color: inherit;
-  padding: 0.4em 0.6em;
-  border-radius: 0.4em;
-}
-
-.resume nav a:hover {
-  background: oklch(92% 0.03 250);
-}
-
-.resume nav a.current {
-  font-weight: 600;
-  border-bottom: 2px solid oklch(70% 0.2 250);
-}
 
 .resume time {
   font-size: 0.9rem;
   color: gray;
 }
 
-.resume a {
-  color: oklch(60% 0.15 250);
+.resume section {
+  background: color-mix(in oklch, canvas 85%, oklch(60% 0.05 250 / 15%));
+  border: 1px solid color-mix(in oklch, var(--border-color), canvas 30%);
+  border-radius: 1.2rem;
+  padding: 1.25rem;
+
+  box-shadow: 0 6px 18px color-mix(in oklch, black 15%, transparent);
+}
+
+.resume nav a {
+  color: inherit;
+}
+
+nav {
+  width: 100%;
+}
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
 }
