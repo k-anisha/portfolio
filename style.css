@@ -9,14 +9,14 @@ body {
   margin-inline: max(1em, (100% - 200ch) / 2);
 }
 
-nav{
+nav {
   --border-color: oklch(50% 10% 200 / 40%);
   display: flex;
   margin-bottom: 1em;
   border-bottom: 1px solid var(--border-color);
 }
 
-nav a{
+nav a {
   flex: 1;
   text-align: center;
   text-decoration: none;
@@ -152,4 +152,11 @@ nav {
   right: 1rem;
   font-size: 80%;
   font-family: inherit;
+}
+
+#profile-stats {
+  dl {
+    display: flex;
+    gap: 1rem;
+  }
 }
