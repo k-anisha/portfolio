@@ -5,47 +5,51 @@ const projects = await fetchJSON('../lib/projects.json');
 
 const projectsContainer = document.querySelector('.projects');
 
-// initial render
 renderProjects(projects, projectsContainer, 'h2');
 
 document.querySelector(".projects-title").innerHTML =
     `<h1>${projects.length} Projects</h1>`;
 
-// SEARCH STATE
 let query = "";
+let selectedYear = null;
+function updateView() {
+    let filtered = projects;
 
-// SEARCH INPUT
+    if (selectedYear !== null) {
+        filtered = filtered.filter(p => p.year == selectedYear);
+    }
+
+    if (query) {
+        filtered = filtered.filter(p =>
+            Object.values(p).join(" ").toLowerCase().includes(query)
+        );
+    }
+
+    renderProjects(filtered, projectsContainer, 'h2');
+    renderPieChart(filtered);
+}
+
 let searchInput = document.querySelector('.searchBar');
 
 searchInput.addEventListener('input', (event) => {
     query = event.target.value.toLowerCase();
-
-    let filteredProjects = projects.filter((project) => {
-        return Object.values(project)
-            .join(" ")
-            .toLowerCase()
-            .includes(query);
-    });
-
-    renderProjects(filteredProjects, projectsContainer, 'h2');
-    renderPieChart(filteredProjects);
+    updateView();
 });
 
 
-// =======================
-// PIE CHART FUNCTION
-// =======================
+// PIE CHART!!!!!!!!111111!!
+
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
+let selectedIndex = -1;
 
 function renderPieChart(projectsGiven) {
 
-    // clear old chart
     let svg = d3.select('#projects-pie-plot');
     svg.selectAll('*').remove();
 
     let legend = d3.select('.legend');
     legend.selectAll('*').remove();
 
-    // group by year
     let rolledData = d3.rollups(
         projectsGiven,
         v => v.length,
@@ -57,7 +61,7 @@ function renderPieChart(projectsGiven) {
         value: count
     }));
 
-    // pie + arc generators
+    // PUE CHART
     let arcGenerator = d3.arc()
         .innerRadius(0)
         .outerRadius(50);
@@ -68,39 +72,16 @@ function renderPieChart(projectsGiven) {
     let arcData = sliceGenerator(data);
     let arcs = arcData.map(d => arcGenerator(d));
 
-    let colors = d3.scaleOrdinal(d3.schemeTableau10);
-
-    let selectedIndex = -1;
-
-    // DRAW PIE SLICES
+    // for the pie slicews
     arcs.forEach((arc, i) => {
         svg.append('path')
             .attr('d', arc)
             .attr('fill', colors(i))
             .on('click', () => {
+                selectedIndex = (selectedYear === data[i].label) ? -1 : i;
+                selectedYear = selectedIndex === -1 ? null : data[selectedIndex].label;
 
-                selectedIndex = selectedIndex === i ? -1 : i;
-
-                svg.selectAll('path')
-                    .attr('opacity', (_, idx) =>
-                        selectedIndex === -1 || idx === selectedIndex ? 1 : 0.3
-                    );
-
-                legend.selectAll('li')
-                    .attr('opacity', (_, idx) =>
-                        selectedIndex === -1 || idx === selectedIndex ? 1 : 0.3
-                    );
-
-                // filter projects by year
-                if (selectedIndex === -1) {
-                    renderProjects(projectsGiven, projectsContainer, 'h2');
-                } else {
-                    let year = data[selectedIndex].label;
-
-                    let filtered = projectsGiven.filter(p => p.year == year);
-
-                    renderProjects(filtered, projectsContainer, 'h2');
-                }
+                updateView();
             });
     });
 
