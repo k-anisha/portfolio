@@ -1,87 +1,3 @@
-// // console.log('IT’S ALIVE!');
-
-// // function $$(selector, context = document) {
-// //   return Array.from(context.querySelectorAll(selector));
-// // }
-
-// // let pages = [
-// //   { url: 'index.html', title: 'Home' },
-// //   { url: 'projects/', title: 'Projects' },
-// //   {url: 'resume/', title: 'Resume' },
-// //   {url: 'contact/', title: 'Contact '}
-// // ];
-
-// // const BASE_PATH =
-// //   (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-// //     ? "/"
-// //     : "/portfolio/"; 
-
-// // let nav = document.createElement('nav');
-// // document.body.prepend(nav);
-
-// // for (let p of pages) {
-// //   let url = p.url;
-// //   let title = p.title;
-
-// //   url = !url.startsWith('http') ? BASE_PATH + url : url;
-
-// //   nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
-// // }
-
-// // for (let p of pages) {
-// //   let url = p.url;
-// //   let title = p.title;
-
-// //   let a = document.createElement('a');
-// //   a.href = url;
-// //   a.textContent = title;
-
-// //   nav.append(a);
-// // }
-
-// // const navLinks = $$("nav a");
-
-// // let currentLink = navLinks.find(
-// //   (a) => a.host === location.host && a.pathname === location.pathname
-// // );
-
-// // currentLink?.classList.add('current');
-
-
-// console.log('IT’S ALIVE!');
-
-// function $$(selector, context = document) {
-//   return Array.from(context.querySelectorAll(selector));
-// }
-
-// let pages = [
-//   { url: 'index.html', title: 'Home' },
-//   { url: 'projects/index.html', title: 'Projects' },
-//   { url: 'resume/index.html', title: 'Resume' },
-//   { url: 'contact/index.html', title: 'Contact' }
-// ];
-
-// let nav = document.createElement('nav');
-// document.body.prepend(nav);
-
-// for (let p of pages) {
-//   let a = document.createElement('a');
-//   a.href = BASE_PATH + p.url;
-//   a.textContent = p.title;
-//   nav.append(a);
-// }
-
-// const navLinks = $$("nav a");
-
-// let currentLink = navLinks.find((a) => {
-//   return (
-//     a.pathname === location.pathname ||
-//     (location.pathname === '/' && a.pathname.endsWith('index.html'))
-//   );
-// });
-
-// currentLink?.classList.add('current');
-
 console.log('IT’S ALIVE!');
 
 function $$(selector, context = document) {
@@ -92,7 +8,8 @@ let pages = [
   { url: 'index.html', title: 'Home' },
   { url: 'projects/index.html', title: 'Projects' },
   { url: 'resume/index.html', title: 'Resume' },
-  { url: 'contact/index.html', title: 'Contact' }
+  { url: 'contact/index.html', title: 'Contact' },
+  { url: 'meta/index.html', title: 'Meta' }
 ];
 
 const BASE_PATH =

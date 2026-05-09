@@ -245,3 +245,185 @@ path {
 .legend {
   flex: 1;
 }
+
+.stats {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 1rem;
+}
+
+.stats dt {
+  font-weight: bold;
+}
+
+.stats dd {
+  margin: 0;
+}
+
+.gridlines line {
+  stroke: #000000;
+  stroke-opacity: 0.7;
+}
+
+.gridlines path {
+  display: none;
+}
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em 1em;
+
+  margin: 0;
+  padding: 1em;
+
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info dt {
+  font-weight: bold;
+  color: #666;
+}
+
+dl.info dd {
+  margin: 0;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  backdrop-filter: blur(4px);
+
+  pointer-events: none;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+.gridlines line {
+  stroke: #ddd;
+  stroke-opacity: 0.7;
+}
+
+.gridlines path {
+  display: none;
+}
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em 1em;
+
+  margin: 0;
+  padding: 1em;
+
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info dt {
+  font-weight: bold;
+  color: #666;
+}
+
+dl.info dd {
+  margin: 0;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  backdrop-filter: blur(4px);
+
+  pointer-events: none;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+.gridlines line {
+  stroke: #ddd;
+  stroke-opacity: 0.7;
+}
+
+.gridlines path {
+  display: none;
+}
+
+/* Container layout */
+#language-breakdown {
+  display: flex;
+  justify-content: space-around;
+  /* Distributes the items evenly */
+  text-align: center;
+  /* Centers all text inside */
+  margin-top: 2rem;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
+}
+
+/* Force each language group to be a vertical column */
+#language-breakdown div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Language Label (e.g., CSS) */
+#language-breakdown dt {
+  font-size: 2.5rem;
+  font-weight: normal;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+}
+
+/* Stats (Lines and Percentage) */
+#language-breakdown dd {
+  margin: 0;
+  font-size: 2.2rem;
+  line-height: 1.3;
+}
+
+/* Targets the percentage line if you wrap it in a span or use a break */
+#language-breakdown dd em {
+  display: block;
+  font-style: normal;
+}
