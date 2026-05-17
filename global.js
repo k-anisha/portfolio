@@ -104,15 +104,16 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
   project.map((p) => {
     const article = document.createElement('article');
     article.innerHTML = `
-    <${headingLevel}>${p.title}</${headingLevel}>
-    <img src="${p.image}" alt="${p.title}">
-    <p>
-      ${p.description}
-      <span class="year">${p.year}</span>
+      <${headingLevel}>${p.title}</${headingLevel}>
+      <img src="${p.image}" alt="${p.title}">
+      <p>
+        ${p.description}
+        <span class="year">${p.year}</span>
       </p>
-  `;
+      ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer">View Project</a>` : ''}
+    `;
     containerElement.appendChild(article);
-  })
+  });
 }
 
 export async function fetchGitHubData(username) {

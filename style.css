@@ -400,14 +400,12 @@ circle:hover {
   font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
 }
 
-/* Force each language group to be a vertical column */
 #language-breakdown div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Language Label (e.g., CSS) */
 #language-breakdown dt {
   font-size: 2.5rem;
   font-weight: normal;
@@ -415,14 +413,12 @@ circle:hover {
   text-transform: uppercase;
 }
 
-/* Stats (Lines and Percentage) */
 #language-breakdown dd {
   margin: 0;
   font-size: 2.2rem;
   line-height: 1.3;
 }
 
-/* Targets the percentage line if you wrap it in a span or use a break */
 #language-breakdown dd em {
   display: block;
   font-style: normal;
