@@ -5,7 +5,7 @@
 body {
   font: 100%/1.5 system-ui;
   display: block;
-  max-width: 100ch;
+  max-width: 1400px;
   margin-inline: max(1em, (100% - 200ch) / 2);
 }
 
@@ -246,7 +246,7 @@ path {
   flex: 1;
 }
 
-.stats {
+/* .stats {
   display: grid;
   grid-template-columns: max-content 1fr;
   gap: 0.5rem 1rem;
@@ -257,6 +257,28 @@ path {
 }
 
 .stats dd {
+  margin: 0;
+} */
+
+#stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#stats>div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 120px;
+}
+
+dt {
+  font-weight: 600;
+}
+
+dd {
   margin: 0;
 }
 
@@ -426,4 +448,117 @@ circle:hover {
 #language-breakdown dd em {
   display: block;
   font-style: normal;
+}
+
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+#files>div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+#files dt {
+  grid-column: 1;
+}
+
+#files dd {
+  grid-column: 2;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: var(--color);
+  border-radius: 50%;
+}
+
+#files small {
+  display: block;
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+#scrolly-1 {
+  display: flex;
+  gap: 4rem;
+  /* Generous gap between narrative text and the chart */
+  align-items: start;
+  margin-top: 2rem;
+}
+
+/* The left text column */
+.scroll-narrative {
+  flex: 1;
+  min-width: 320px;
+  /* Ensures the column never gets narrower than this */
+  max-width: 420px;
+  /* Keeps line length perfect for left-to-right reading */
+  z-index: 2;
+}
+
+/* The right chart column */
+#scatter-plot {
+  flex: 2;
+  position: sticky;
+  top: 10vh;
+  /* Sticks comfortably below the top window edge */
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Force the SVG chart to scale down and fit perfectly inside its space */
+#chart svg {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+}
+
+.step {
+  min-height: 10vh;
+  padding: 2rem 0;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 40ch;
+}
+
+.step {
+  position: relative;
+  background: color-mix(in oklch, canvas 92%, black 5%);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin: 1rem 0;
+  max-width: 40ch;
+}
+
+/* left colored bar */
+.step::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  border-radius: 12px 0 0 12px;
+  background: var(--color, steelblue);
 }
