@@ -20,6 +20,15 @@
         This page includes stats about the code of this website.
     </p>
 
+    <div>
+        <label>
+            Show commits until:
+            <input type="range" id="commit-progress" min="0" max="100" value="100">
+            <time id="commit-time"></time>
+        </label>
+    </div>
+
+
     <div id="stats"></div>
 
     <h2>Commits by time of day</h2>
@@ -27,10 +36,7 @@
 
     <p id="selection-count">No commits selected</p>
     <dl id="language-breakdown">
-        <div>
-            <dt>CSS</dt>
-            <dd>82 lines <em>(23.6%)</em></dd>
-        </div>
+
     </dl>
     <dl id="commit-tooltip" class="info tooltip" hidden>
         <dt>Commit</dt>
