@@ -240,7 +240,9 @@ function updateFileDisplay(commits) {
 
 /* ---------------- INIT ---------------- */
 const data = await loadData();
-const commits = processCommits(data);
+const bommits = processCommits(data);
+
+const commits = d3.sort(processCommits(data), d => d.datetime);
 
 commitsGlobal = commits;
 
